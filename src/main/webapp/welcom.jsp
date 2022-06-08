@@ -1,5 +1,4 @@
-<%@page import="java.util.Date" %><%@page import="java.text.SimpleDateFormat" %>
-
+<%Date %>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -19,10 +18,10 @@
             </div>
            </div>
         </nav>
-        <div class="p-5 bg-primary text-white">
+        <div class="p-5 bg-primary text-white"> 
             <!-- .container>h1.display-3 -->
             <div class="container">
-                <h1 class="display-3">Welcome to Web Shopping Mall</h1>
+                <h1 class="display-3">Welcome to Web Shopping Mall!</h1>
             </div>
           </div>
 
@@ -35,12 +34,12 @@
 				Date now = new Date();
 				SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss");
                 %>
-				what time is it? <%= format.format(now) %>
+
 
             </div>
             </div>
 <footer class="container">
-    <p>&copy; WebMarket</p>
+    <p>&copy; Webmarket</p>
 </footer>
 
 
