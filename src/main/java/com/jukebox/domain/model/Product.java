@@ -21,11 +21,7 @@ public class Product {
 			System.out.println(product == product2); //==은 주소비교, 둘이 다른것!
 			System.out.println(product.hashCode() == product2.hashCode()); //equals 재정의되며 밑에 hashCode 재정의됨
 			System.out.println(product.equals(product2));//객체비교는 equals 사용
-			
-			
-//			System.out.println("name".equals("name")); //이럴때 객체기 때문에 equals 사용한다
-			
-//			System.out.println(new String("name") == new String("name"));
+		
 
 	}
 	private String id;
