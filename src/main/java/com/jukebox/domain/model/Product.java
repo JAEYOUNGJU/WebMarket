@@ -134,6 +134,11 @@ public class Product {
 				+ ", manufacturer=" + manufacturer + ", catagory=" + catagory + ", unitInStock=" + unitInStock
 				+ ", condition=" + condition + "]";
 	}
+
+	public void manufacturer(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	
