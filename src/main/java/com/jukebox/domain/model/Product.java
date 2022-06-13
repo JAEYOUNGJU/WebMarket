@@ -30,10 +30,10 @@ public class Product {
 	}
 	private String id;
 	private String name;
-	private  int unitPrice;
-	private String descriprtion;
+	private int unitPrice;
+	private String description;
 	private String manufacturer;
-	private String catagory;
+	private String category;
 	private long unitInStock;
 	private String condition;
 	
@@ -69,12 +69,12 @@ public class Product {
 		this.unitPrice = unitPrice;
 	}
 
-	public String getDescriprtion() {
-		return descriprtion;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescriprtion(String descriprtion) {
-		this.descriprtion = descriprtion;
+	public void setDescription(String descriprtion) {
+		this.description = descriprtion;
 	}
 
 	public String getManufacturer() {
@@ -85,12 +85,12 @@ public class Product {
 		this.manufacturer = manufacturer;
 	}
 
-	public String getCatagory() {
-		return catagory;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setCatagory(String catagory) {
-		this.catagory = catagory;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public long getUnitInStock() {
@@ -130,8 +130,8 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", unitPrice=" + unitPrice + ", descriprtion=" + descriprtion
-				+ ", manufacturer=" + manufacturer + ", catagory=" + catagory + ", unitInStock=" + unitInStock
+		return "Product [id=" + id + ", name=" + name + ", unitPrice=" + unitPrice + ", description=" + description
+				+ ", manufacturer=" + manufacturer + ", category=" + category + ", unitInStock=" + unitInStock
 				+ ", condition=" + condition + "]";
 	}
 
