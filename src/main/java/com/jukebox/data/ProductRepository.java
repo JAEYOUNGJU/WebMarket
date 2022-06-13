@@ -13,21 +13,21 @@ public class ProductRepository {
         phone.setDescription("4.7-inch, 1334x750 Retina HD display");
         phone.setCategory("Smart Phone");
         phone.setManufacturer("Apple");
-        phone.setUnitsInStock(1000);
+        phone.setUnitInStock(1000);
         phone.setCondition("New");
 
         Product notebook = new Product("P1235", "LG PC 그램", 1500000);
         notebook.setDescription("!4.7-inch, 1334x750 Retina HD display");
         notebook.setCategory("!Smart Phone");
         notebook.setManufacturer("!Apple");
-        notebook.setUnitsInStock(1000);
+        notebook.setUnitInStock(1000);
         notebook.setCondition("Refubished");
 
         Product tablet = new Product("P1236", "Galaxy Tab S", 900000);
         tablet.setDescription("?4.7-inch, 1334x750 Retina HD display");
         tablet.setCategory("?Smart Phone");
         tablet.setManufacturer("?Apple");
-        tablet.setUnitsInStock(1000);
+        tablet.setUnitInStock(1000);
         tablet.setCondition("Old");
 
         products.add(phone);
