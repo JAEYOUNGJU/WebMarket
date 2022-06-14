@@ -4,8 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<jsp:useBean id="repository"
-	class="com.jukebox.data.ProductRepository" scope="session"></jsp:useBean>
 <html>
 
 <head>
@@ -30,6 +28,10 @@
 	<div class="container">
 		<div class="row" align="center">
             <%
+            //싱글턴 패턴
+            ProductRepository repository = ProductRepository.getInstance();
+            out.println(repository.hashCode());
+            
             List<Product> products = repository.getAllProducts();
             for (int i = 0; i < products.size(); i++) {
                 Product product = products.get(i);
