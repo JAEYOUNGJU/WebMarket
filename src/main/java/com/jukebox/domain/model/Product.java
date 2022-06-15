@@ -6,24 +6,24 @@ import java.util.Objects;
 //2. 필요하면 생성자 추가
 //3. 무지성getter, setter 읽기 전용, 쓰기 전용
 //4. 무지성toString()
-//5. 필요하면 euqals, hashcode 재정의(오버라이드)
+//5. 필요하면 equals, hashCode 재정의(오버라이드) -> 객체의 동등 비교를 위해서 Object의 equals() 메서드와 hashCode() 메서드
+//재정의 함
 public class Product {
 	public static void main(String[] args) {
 			Product product = new Product("22", "22", 11); //생성자 만들자
-//			Product product2 = new Product();
-//			System.out.println(product);
-//			product.setId("111");
+
 			Product product2 = new Product("22", "22", 11); //생성자 만들자
-//			System.out.println(product2.hashCode());
 			
-			Object object = new Product("22", "22", 11); //오브젝트로 생성자 만들기
+//			Object object = new Product("22", "22", 11); //오브젝트로 생성자 만들기
 			
-			System.out.println(product == product2); //==은 주소비교, 둘이 다른것!
+			System.out.println(product == product2); //==은 주소비교, 둘은 다른 것!
 			System.out.println(product.hashCode() == product2.hashCode()); //equals 재정의되며 밑에 hashCode 재정의됨
+			//hashCode : 객체를 식별할 하나의 정수 값
 			System.out.println(product.equals(product2));//객체비교는 equals 사용
 		
 
 	}
+	//private 멤버는 class 외부에서 접근할 수 없는 변수
 	private String id;
 	private String name;
 	private int unitPrice;
@@ -109,7 +109,9 @@ public class Product {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(id); //objects 필드 값을 return 하도록 해주면 서로 다른 객체이지만 hashCode()의 리턴값이 같고
+		//equals의 리턴값이 true가 나오기 때문에 동등 객체로 평가하게 됨
+	
 	}
 
 	@Override

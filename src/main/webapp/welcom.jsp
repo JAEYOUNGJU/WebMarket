@@ -1,6 +1,8 @@
-<%@page import="java.util.Date" %><%@page import="java.text.SimpleDateFormat" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.util.Date"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +30,19 @@
         SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss a");
         %>
         현재 접속 시각 : <%= format.format(now) %>
+        <%
+        List<String> foods = new ArrayList<>();
+        foods.add("짬뽕");
+        session.setAttribute("foods", foods); /* 세션 속성 이름이 foods인 속성에 foods을 할당  */
+     
+        /* session은 내장함수라 inport 하지 않아도 됨 */
+        session.setAttribute("name", "주재영"); /* 세션 속성 이름이 name인 속성에 주재영을 할당  */
+        session.setAttribute("age", 20); /* 세션 속성 이름이 age인 속성에 20을 할당  */
+        session.setMaxInactiveInterval(5); /* 해당 세션을 유지하기위해 세션 시간을 초 단위로 설정 */
+        
+
+        
+        %>
       </div>
     </div>
 
