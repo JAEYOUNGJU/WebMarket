@@ -2,6 +2,7 @@ package com.jukebox.data.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,7 +11,9 @@ import java.util.List;
 import com.jukebox.domain.model.Product;
 
 public class MySqlProductDaoImpl implements ProductDao {
-
+//	private final static String TABLE_NAME = "product";
+//	private final static String COLMN_ID = "p_id";
+	
     public MySqlProductDaoImpl() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -28,7 +31,7 @@ public class MySqlProductDaoImpl implements ProductDao {
                 Statement stmt = conn.createStatement();) {
             try (ResultSet rs = stmt.executeQuery(sql)) {
                 while (rs.next()) {
-                    String id = rs.getString("p_id");
+                    String id = rs.getString("COLMN_ID");
                     String name = rs.getString("p_name");
                     int unitPrice = rs.getInt("p_unitPrice");
                     String description = rs.getString("p_description");
@@ -55,20 +58,61 @@ public class MySqlProductDaoImpl implements ProductDao {
 
     @Override
     public void insert(Product product) {
-        // TODO Auto-generated method stub
-
+    	//PreparedStatement 동적 쿼리 생성 : INSERT, UPDATE, DELETE 여러번 할 때 고속
+   String sql = "INSERT INTO product VALUES(?,?,?,?,?,?,?,?)";
+    	 try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/kopoctc","root","kopo40");
+    PreparedStatement stmt = conn.prepareStatement(sql);) {
+    		 stmt.setString(1, product.getId());
+    		 stmt.setString(2, product.getName());
+    		 stmt.setInt(3, product.getUnitPrice());
+    		 stmt.setString(4, product.getDescription());
+    		 stmt.setString(5, product.getCategory());
+    		 stmt.setString(6, product.getManufacturer());
+    		 stmt.setLong(7, product.getUnitInStock());
+    		 stmt.setString(8, product.getCondition());
+    		 stmt.executeUpdate();//int를 리턴함
+    	 }catch (SQLException e) {
+    		 throw new IllegalStateException("insert 실패"+e.getMessage());
+    	 }
     }
 
     @Override
     public void update(Product product) {
         // TODO Auto-generated method stub
-
+    	//?(물음표)는 테이블명이다.
+    	String sql = "UPDATE ? SET p_name=?,p_unitPrice=?,p_description=?,p_category=?,p_manufacturer=?,p_unitsInStock=?,    p_condition VARCHAR(20)\r\n"
+    			+ "=?";
+   	 try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/kopoctc","root","kopo40");
+   PreparedStatement stmt = conn.prepareStatement(sql);) {
+   		 stmt.setString(1, TABLE_NAME);
+   		 stmt.setString(2, product.getName());
+		 stmt.setInt(3, product.getUnitPrice());
+		 stmt.setString(4, product.getDescription());
+		 stmt.setString(5, product.getCategory());
+		 stmt.setString(6, product.getManufacturer());
+		 stmt.setLong(7, product.getUnitInStock());
+		 stmt.setString(8, product.getCondition());
+   		 stmt.executeUpdate();//int를 리턴함
+   	 }catch (SQLException e) {
+   		 throw new IllegalStateException("update 실패"+e.getMessage());
+   	 }
     }
 
     @Override
     public void delete(Product product) {
         // TODO Auto-generated method stub
-
+    	String sql = "DELETE FROM ? WHERE p_id=?";
+    			
+   	 try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/kopoctc","root","kopo40");
+   PreparedStatement stmt = conn.prepareStatement(sql);) {
+   		 stmt.setString(1, TABLE_NAME);
+   		 stmt.setString(2, product.getId());
+   		 stmt.executeUpdate();//int를 리턴함
+   	 }catch (SQLException e) {
+   		 throw new IllegalStateException("delete 실패"+e.getMessage());
+   	 }
     }
-
 }
+    
+    
+
