@@ -66,7 +66,7 @@ conn.close();
 %>
 
 </table>
-<table width=560>
+<table width=540>
 
 <tr>
 		<td width=500></td>

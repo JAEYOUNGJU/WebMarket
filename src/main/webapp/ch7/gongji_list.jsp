@@ -25,16 +25,16 @@
 %>
 
 <tr>
-<td><%=id%></td>
+<td align=center><%=id%></td>
 <td><a href='gongji_view.jsp?key=<%=id%>'><%=rset.getString(2)%></a></td>
-<td><%=rset.getString(3) %></td>
+<td align=center><%=rset.getString(3) %></td>
 </tr>
 <%
 	}
 %>
 </table><br>
 <table>
-<tr><td width=600></td><td><input align=right type=submit OnClick=location.href='gongji_insert.jsp' value=신규></input></td></tr>
+<tr><td width=550></td><td><input align=right type=submit OnClick=location.href='gongji_insert.jsp' value=신규></input></td></tr>
 </table>
 
 <table cellspacing=3 cellpadding=20>
