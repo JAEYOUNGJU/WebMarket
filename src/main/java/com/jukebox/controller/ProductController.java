@@ -67,5 +67,4 @@ public class ProductController extends HttpServlet {
 		super.doPost(req, resp);
 	}
 
-	
 }
